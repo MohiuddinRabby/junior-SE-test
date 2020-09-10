@@ -6,8 +6,8 @@ import InfoModal from "../InfoModal/InfoModal";
 
 const Map = () => {
   const [mapStyle, setMapStyle] = useState({
-    width: 400,
-    height: 400,
+    width: "100%",
+    height: "100vh",
     latitude: 23.46113,
     longitude: 91.179246,
     zoom: 8,
@@ -17,7 +17,7 @@ const Map = () => {
   const handleShowModal = () => setShowModal(true);
   const lanlatInfo = { lan: mapStyle.latitude, lat: mapStyle.longitude };
   return (
-    <Container fluid>
+    <Container fluid="true">
       <ReactMapGL
         {...mapStyle}
         onViewportChange={(nextViewport) => setMapStyle(nextViewport)}
