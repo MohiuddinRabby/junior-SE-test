@@ -2,10 +2,17 @@ import React, { useState } from "react";
 import { Modal, Button, Form } from "react-bootstrap";
 
 const InfoModal = (props) => {
-  const [name, setName] = useState("");
+  //state to take user name input
+  const [name, setName] = useState("mohiuddin");
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(name);
+    if (name === "") {
+      //if value empty show alert
+      alert("Name field should not be empty");
+    } else {
+      const consoleInfo = { name: name, location: props.lanlatInfo };
+      console.log(consoleInfo);
+    }
   };
   return (
     <Modal show={props.show} onHide={props.handleClose}>
@@ -13,12 +20,12 @@ const InfoModal = (props) => {
         <Form>
           <Form.Control
             type="text"
-            placeholder={`${props.lanlatInfo.lan} / ${props.lanlatInfo.lat}`}
+            placeholder={`${props.lanlatInfo.lat} / ${props.lanlatInfo.lon}`}
             disabled
           />
           <Form.Control
             type="text"
-            placeholder="Enter Name"
+            placeholder="mohiuddin"
             onChange={(e) => setName(e.target.value)}
           />
           <br />
